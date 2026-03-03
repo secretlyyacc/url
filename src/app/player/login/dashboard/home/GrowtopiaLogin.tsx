@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 
 const GrowtopiaLogin: React.FC = () => {
   const searchParams = useSearchParams();
@@ -172,9 +173,16 @@ const GrowtopiaLogin: React.FC = () => {
       <div className="toggle-box">
         <div className="toggle-panel toggle-left">
           <div className="logo-container">
-            <img src="/game_title.png" alt="Game Title" />
+            <Image 
+              src="/game_title.png" 
+              alt="Game Title"
+              width={300}
+              height={100}
+              style={{ objectFit: 'contain' }}
+              priority
+            />
           </div>
-          <p>Don't have an account?</p>
+          <p>Don&apos;t have an account?</p>
           <button className="btn" type="button" onClick={() => setIsRegister(true)}>
             Register
           </button>
@@ -182,7 +190,14 @@ const GrowtopiaLogin: React.FC = () => {
 
         <div className="toggle-panel toggle-right">
           <div className="logo-container">
-            <img src="/game_title.png" alt="Game Title" />
+            <Image 
+              src="/game_title.png" 
+              alt="Game Title"
+              width={300}
+              height={100}
+              style={{ objectFit: 'contain' }}
+              priority
+            />
           </div>
           <p>Already have an account?</p>
           <button className="btn" type="button" onClick={() => setIsRegister(false)}>
