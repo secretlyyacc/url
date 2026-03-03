@@ -16,9 +16,12 @@ const GrowtopiaLogin: React.FC = () => {
   const registerFormRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    document.title = "Growtopia Player Portal";
-    const saved = localStorage.getItem("growId");
-    if (saved) setGrowId(saved);
+    // 🔥 FIX 1: Cek apakah di browser sebelum pake browser APIs
+    if (typeof window !== 'undefined') {
+      document.title = "Growtopia Player Portal";
+      const saved = localStorage.getItem("growId");
+      if (saved) setGrowId(saved);
+    }
   }, []);
 
   const validateUsername = (name: string) => {
@@ -106,13 +109,13 @@ const GrowtopiaLogin: React.FC = () => {
 
           <p>Need help? Join our community</p>
           <div className="social-icons">
-            <a href="https://chat.whatsapp.com/JpJPCjE6tIlCs64ubEPg0T" target="_blank">
+            <a href="https://chat.whatsapp.com/JpJPCjE6tIlCs64ubEPg0T" target="_blank" rel="noopener noreferrer">
               <i className="bx bxl-whatsapp"></i>
             </a>
-            <a href="https://discord.gg/mBcfYge8zR" target="_blank">
+            <a href="https://discord.gg/mBcfYge8zR" target="_blank" rel="noopener noreferrer">
               <i className="bx bxl-discord"></i>
             </a>
-            <a href="https://t.me/windsverse" target="_blank">
+            <a href="https://t.me/windsverse" target="_blank" rel="noopener noreferrer">
               <i className="bx bxl-telegram"></i>
             </a>
           </div>
@@ -178,7 +181,11 @@ const GrowtopiaLogin: React.FC = () => {
               alt="Game Title"
               width={300}
               height={100}
-              style={{ objectFit: 'contain' }}
+              style={{ 
+                width: '100%',
+                height: 'auto',
+                objectFit: 'contain' 
+              }}
               priority
             />
           </div>
@@ -195,7 +202,11 @@ const GrowtopiaLogin: React.FC = () => {
               alt="Game Title"
               width={300}
               height={100}
-              style={{ objectFit: 'contain' }}
+              style={{ 
+                width: '100%',
+                height: 'auto',
+                objectFit: 'contain' 
+              }}
               priority
             />
           </div>
